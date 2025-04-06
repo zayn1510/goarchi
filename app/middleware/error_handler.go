@@ -1,11 +1,11 @@
 package middleware
 
 import (
-	"apidanadesa/app/resources"
 	"errors"
-	"github.com/gin-gonic/gin"
 	"net/http"
 	"strings"
+	"github.com/gin-gonic/gin"
+	"github.com/zayn1510/goarchi/app/resources"
 )
 
 var (
