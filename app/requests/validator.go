@@ -1,19 +1,18 @@
 package requests
 
 import (
-	"apidanadesa/app/resources"
 	"encoding/json"
 	"errors"
 	"fmt"
 	"github.com/gin-gonic/gin"
-	"io"
-	"reflect"
-	"strings"
-
 	"github.com/go-playground/locales/en"
 	ut "github.com/go-playground/universal-translator"
 	"github.com/go-playground/validator/v10"
 	enTranslations "github.com/go-playground/validator/v10/translations/en"
+	"github.com/zayn1510/goarchi/app/resources"
+	"io"
+	"reflect"
+	"strings"
 )
 
 var (
