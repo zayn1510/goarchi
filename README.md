@@ -36,41 +36,45 @@ DB_NAME=yourdbname
 3. Install dependency Go
 go mod tidy
 
-🛠️ CLI Generator
-Framework ini menyediakan generator bawaan yang menggunakan makefile. Kamu bisa membuat berbagai komponen hanya dengan satu baris perintah.
+📦 Goarchi - Simple Layered Architecture Generator for Golang
 
-make controller name=User	Generate controller User
-make service name=User	Generate service User
-make request name=User	Generate request User
-make resource name=User	Generate resource User
-make models name=User	Generate model dan migration User
-📂 Struktur Folder
-.
-├── app/
-│   ├── controllers/
-│   ├── services/
-│   ├── requests/
-│   ├── resources/
-│   └── models/
-│   └── seeders/
-│   └── migarations/
-│   └── migrate/
-├── config/
-│   └── database.go/
-├── middleware/
-├── routes/
-│   └── web.go
-├── .env.example
-├── main.go
-└── go.mod
+🔧 Controller:
+  goarchi archi controller [name]
+    → Generate a controller (e.g. UserController)
+
+🛠️  Service:
+  goarchi archi service [name]
+    → Generate a service layer (e.g. UserService)
+
+📝 Request:
+  goarchi archi request [name] [fields...]
+    → Generate a request struct with validation (e.g. name:string age:int)
+
+📦 Resource:
+  goarchi archi resource [name]
+    → Generate a response formatter (DTO/transformer)
+
+🧩 Model:
+  goarchi archi model [name] [fields...]
+    → Generate a GORM model with tags
+    → Example: goarchi archi model users "id:int;primaryKey" "name:string;not null"
+
+🛠️  Migration:
+  goarchi archi migration [name]
+    → Generate a migration file in 'database/migrations'
+
+🧬 Migrate:
+  goarchi migrate
+    → Run all .sql migration files in 'database/migrations'
+
+📌 Installation via Go (Linux/macOS/Windows):
+  go run cli/main.go install
+  → Will build and (optionally) move the binary to your PATH
+
+📁 After install:
+  You can use 'goarchi' globally from any folder.
+
 🧬 Menjalankan Project
-bash
-Always show details
-
-Copy
-go run main.go
-Project akan berjalan di http://localhost:8080
-
 🧱 Middleware
 ✅ Mengaktifkan / Menonaktifkan CORS
 Di dalam main.go, kamu bisa mengatur CORS dengan baris berikut:

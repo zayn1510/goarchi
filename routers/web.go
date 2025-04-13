@@ -7,7 +7,7 @@ import (
 func setUpRouterPing(router *gin.RouterGroup) {
 	router.GET("/ping", func(c *gin.Context) {
 		c.JSON(200, gin.H{
-			"message": "bidang",
+			"message": "ping",
 		})
 	})
 }
@@ -15,5 +15,5 @@ func setUpRouterPing(router *gin.RouterGroup) {
 func RegisterRoutes(r *gin.Engine) {
 	api := r.Group("/api/v1")
 	setUpRouterPing(api)
-	
+
 }
