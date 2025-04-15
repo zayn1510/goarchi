@@ -83,22 +83,30 @@ func RunInstall() {
 	}
 
 	fmt.Println("✅ Goarchi berhasil terinstall di /usr/local/bin/goarchi")
-	fmt.Println("🚀 Sekarang kamu bisa gunakan: goarchi archi controller user")
 }
 
-// copyFile fallback untuk menghindari cross-device error
 func copyFile(src, dst string) error {
 	in, err := os.Open(src)
 	if err != nil {
 		return err
 	}
-	defer in.Close()
+	defer func(in *os.File) {
+		err := in.Close()
+		if err != nil {
+			fmt.Printf("error closing file: %v", err)
+		}
+	}(in)
 
 	out, err := os.Create(dst)
 	if err != nil {
 		return err
 	}
-	defer out.Close()
+	defer func(out *os.File) {
+		err := out.Close()
+		if err != nil {
+			fmt.Printf("error closing file: %v", err)
+		}
+	}(out)
 
 	_, err = in.Stat()
 	if err != nil {
