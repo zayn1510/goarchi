@@ -4,7 +4,6 @@ import (
 	"bufio"
 	"fmt"
 	"github.com/spf13/cobra"
-	"github.com/zayn1510/goarchi/cmd/install"
 	"gopkg.in/yaml.v2"
 	"io/ioutil"
 	"os"
@@ -25,7 +24,14 @@ var airCmd = &cobra.Command{
 	Use:   "air",
 	Short: "Jalankan Goarchi dalam development mode dengan Air (hot reload)",
 	Run: func(cmd *cobra.Command, args []string) {
-		install.RunDev()
+		RunDev()
+	},
+}
+var upgradeCmd = &cobra.Command{
+	Use:   "upgrade",
+	Short: "Upgrade Goarchi CLI ke versi terbaru (build & replace)",
+	Run: func(cmd *cobra.Command, args []string) {
+		Upgrade()
 	},
 }
 
@@ -33,7 +39,7 @@ var installCmd = &cobra.Command{
 	Use:   "build",
 	Short: "Install Goarchi CLI globally",
 	Run: func(cmd *cobra.Command, args []string) {
-		install.RunInstall()
+		RunInstall()
 	},
 }
 var installDBCommand = &cobra.Command{
@@ -271,5 +277,6 @@ func init() {
 	rootCmd.AddCommand(installDBCommand)
 	rootCmd.AddCommand(versionCmd)
 	rootCmd.AddCommand(cleanCmd)
+	rootCmd.AddCommand(upgradeCmd)
 
 }
