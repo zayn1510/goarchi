@@ -51,8 +51,8 @@ var rootCmd = &cobra.Command{
 		color.HiGreenString("🛠️  Migration:\n  goarchi archi migration [name]")+
 			"\n    → Generate a migration file in 'database/migrations'",
 
-		color.HiGreenString("🧬 Migrate:\n  goarchi migrate")+
-			"\n    → Run all .sql migration files in 'database/migrations'",
+		color.HiGreenString("🧬 Migrate:\n  goarchi archi migrate [up|down]")+
+			"\n    → 'up' applies migrations, 'down' rolls them back\n    → Looks for .sql files in 'database/migrations'",
 
 		color.HiYellowString("📌 Installation via Go (Linux/macOS/Windows):")+
 			"\n  go run cli/main.go install"+
