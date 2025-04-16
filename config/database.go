@@ -19,7 +19,6 @@ var DB_PREFIX string
 
 func init() {
 	if _, err := os.Stat(".env"); err == nil {
-		log.Println("Loading .env file...")
 		if err := godotenv.Load(); err != nil {
 			log.Printf("Gagal load .env: %v", err)
 		}

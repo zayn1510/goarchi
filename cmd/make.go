@@ -18,13 +18,12 @@ type AppConfig struct {
 }
 
 var makeCmd = &cobra.Command{
-	Use:   "archi",
+	Use:   "make",
 	Short: "Generate code components like controller, model, etc.",
 }
 var airCmd = &cobra.Command{
 	Use:   "air",
 	Short: "Jalankan Goarchi dalam development mode dengan Air (hot reload)",
-
 	Run: func(cmd *cobra.Command, args []string) {
 		install.RunDev()
 	},
