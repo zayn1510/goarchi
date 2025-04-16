@@ -30,6 +30,8 @@ var rootCmd = &cobra.Command{
 %s
 
 %s
+
+%s
 `,
 		color.New(color.FgHiBlue, color.Bold).Sprint("📦 Goarchi - Simple Layered Architecture Generator for Golang"),
 
@@ -55,11 +57,15 @@ var rootCmd = &cobra.Command{
 			"\n    → 'up' applies migrations, 'down' rolls them back\n    → Looks for .sql files in 'database/migrations'",
 
 		color.HiYellowString("📌 Installation via Go (Linux/macOS/Windows):")+
-			"\n  go run cli/main.go install"+
+			"\n  goarchi install"+
 			"\n  → Will build and (optionally) move the binary to your PATH",
 
 		color.HiYellowString("📁 After install:")+
 			"\n  You can use 'goarchi' globally from any folder.",
+
+		color.HiYellowString("📌 Upgrade via Go (Linux/macOS/Windows):")+
+			"\n  goarchi upgrade"+
+			"\n  → Rebuilds the binary and (optionally) replaces the existing one in your PATH",
 	),
 }
 

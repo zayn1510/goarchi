@@ -22,7 +22,7 @@ var makeCmd = &cobra.Command{
 }
 var airCmd = &cobra.Command{
 	Use:   "air",
-	Short: "Jalankan Goarchi dalam development mode dengan Air (hot reload)",
+	Short: "Run Goarchi in development mode with Air (hot reload)",
 	Run: func(cmd *cobra.Command, args []string) {
 		RunDev()
 	},
